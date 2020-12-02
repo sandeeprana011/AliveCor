@@ -24,6 +24,7 @@ class FavoritesViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.navigationController?.navigationBar.topItem?.title = "Favourite"
 		let stagLayout = StagLayout(widthHeightRatios: [(0.5,0.5),(0.5,0.5)], itemSpacing: 5);
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self

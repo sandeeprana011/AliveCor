@@ -39,7 +39,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="241" height="239"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Hard 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyR-o7-RGg">
-                                                    <rect key="frame" x="0.0" y="219.5" width="241" height="19.5"/>
+                                                    <rect key="frame" x="0.0" y="199.5" width="241" height="19.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <directionalEdgeInsets key="directionalLayoutMargins" top="18" leading="8" bottom="18" trailing="8"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
@@ -71,7 +71,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="tgi-Lg-onV" secondAttribute="trailing" id="XFD-xo-vQD"/>
                                                 <constraint firstItem="tgi-Lg-onV" firstAttribute="leading" secondItem="Ya9-r4-DR1" secondAttribute="leading" id="XfC-Bl-KKo"/>
                                                 <constraint firstAttribute="trailing" secondItem="zyR-o7-RGg" secondAttribute="trailing" id="c4Z-D5-laK"/>
-                                                <constraint firstAttribute="bottom" secondItem="zyR-o7-RGg" secondAttribute="bottom" id="s6a-N4-QSb"/>
+                                                <constraint firstAttribute="bottom" secondItem="zyR-o7-RGg" secondAttribute="bottom" constant="20" id="s6a-N4-QSb"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="241" height="239"/>
