@@ -39,9 +39,11 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="241" height="239"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Die Hard 4" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyR-o7-RGg">
-                                                    <rect key="frame" x="16" y="211.5" width="209" height="19.5"/>
+                                                    <rect key="frame" x="0.0" y="219.5" width="241" height="19.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <directionalEdgeInsets key="directionalLayoutMargins" top="18" leading="8" bottom="18" trailing="8"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGL-73-XBt">
@@ -50,7 +52,7 @@
                                                         <constraint firstAttribute="height" constant="34" id="8yB-hm-w5Z"/>
                                                         <constraint firstAttribute="width" constant="34" id="cai-8o-k58"/>
                                                     </constraints>
-                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal">
                                                         <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                                     </state>
@@ -62,11 +64,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="tgi-Lg-onV" secondAttribute="bottom" id="3Sf-xs-n93"/>
                                                 <constraint firstItem="tgi-Lg-onV" firstAttribute="top" secondItem="Ya9-r4-DR1" secondAttribute="top" id="K9f-8g-icJ"/>
                                                 <constraint firstItem="nGL-73-XBt" firstAttribute="top" secondItem="Ya9-r4-DR1" secondAttribute="top" constant="8" id="KPY-bG-k1u"/>
-                                                <constraint firstItem="zyR-o7-RGg" firstAttribute="leading" secondItem="Ya9-r4-DR1" secondAttribute="leading" constant="16" id="NMx-NP-GMD"/>
+                                                <constraint firstItem="zyR-o7-RGg" firstAttribute="leading" secondItem="Ya9-r4-DR1" secondAttribute="leading" id="NMx-NP-GMD"/>
                                                 <constraint firstAttribute="trailing" secondItem="tgi-Lg-onV" secondAttribute="trailing" id="XFD-xo-vQD"/>
                                                 <constraint firstItem="tgi-Lg-onV" firstAttribute="leading" secondItem="Ya9-r4-DR1" secondAttribute="leading" id="XfC-Bl-KKo"/>
-                                                <constraint firstAttribute="trailing" secondItem="zyR-o7-RGg" secondAttribute="trailing" constant="16" id="c4Z-D5-laK"/>
-                                                <constraint firstAttribute="bottom" secondItem="zyR-o7-RGg" secondAttribute="bottom" constant="8" id="s6a-N4-QSb"/>
+                                                <constraint firstAttribute="trailing" secondItem="zyR-o7-RGg" secondAttribute="trailing" id="c4Z-D5-laK"/>
+                                                <constraint firstAttribute="bottom" secondItem="zyR-o7-RGg" secondAttribute="bottom" id="s6a-N4-QSb"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="241" height="239"/>
@@ -102,9 +104,6 @@
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

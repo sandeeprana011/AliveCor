@@ -101,29 +101,36 @@ class CellMovie: UICollectionViewCell {
 	@IBOutlet var bFavorite:UIButton!
 	@IBOutlet var iMovieCover:UIImageView!
 	
+	var movie:Movie?
+	
 	func updateCell(movie:Movie)  {
 		self.lMovieName.text = movie.title ?? ""
 		self.bFavorite.isSelected = movie.getIsFavorite()
 		
 		if self.iMovieCover.image == nil {
 			self.bFavorite.imageView?.addShadow()
+			self.lMovieName.addShadow()
 		}
 		
 		self.iMovieCover.kf.setImage(with: URL(string: movie.getCoverUrl()))
+		self.movie = movie;
 		
 //		print(movie.getCoverUrl())
 	}
 	
 }
 
+//import Chame
 extension UIView {
 	func addShadow() {
 		let shadowPath = UIBezierPath(rect: self.bounds)
 		self.layer.masksToBounds = false
 		self.clipsToBounds = false
-		self.layer.shadowColor = UIColor.white.cgColor
+		self.layer.shadowColor = UIColor.black.cgColor
 		self.layer.shadowOffset = CGSize(width: 0, height: 0.5)
 		self.layer.shadowOpacity = 0.8
+		self.layer.shadowRadius = 8
 		self.layer.shadowPath = shadowPath.cgPath
 	}
+	
 }

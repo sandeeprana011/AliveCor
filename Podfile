@@ -7,6 +7,7 @@ target 'AliveCor' do
 	pod "Alamofire"
 	pod "Kingfisher"
 	pod 'StagLayout'
+	
   # Pods for AliveCor
 
 end
