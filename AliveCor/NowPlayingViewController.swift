@@ -48,6 +48,8 @@ class ViewModelNowPlaying {
 	
 }
 
+import StagLayout
+
 class NowPlayingViewController: UIViewController {
 	
 	@IBOutlet weak var collectionView:UICollectionView!
@@ -56,8 +58,10 @@ class NowPlayingViewController: UIViewController {
     
 	override func viewDidLoad() {
         super.viewDidLoad()
+		let stagLayout = StagLayout(widthHeightRatios: [(0.5,0.5),(0.5,0.5),(1.0,0.5),(0.5,0.5),(0.5,1.0),(0.5,0.5)], itemSpacing: 5);
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
+		self.collectionView.setCollectionViewLayout(stagLayout, animated: false)
 		viewModelNowPlaying = ViewModelNowPlaying(delegate:self)
     }
 
@@ -89,13 +93,37 @@ extension NowPlayingViewController:UICollectionViewDelegateFlowLayout,UICollecti
 	}
 }
 
+import Kingfisher
+
+
 class CellMovie: UICollectionViewCell {
 	@IBOutlet var lMovieName:UILabel!
 	@IBOutlet var bFavorite:UIButton!
 	@IBOutlet var iMovieCover:UIImageView!
 	
 	func updateCell(movie:Movie)  {
-		self.lMovieName.text = movie.originalTitle ?? ""
+		self.lMovieName.text = movie.title ?? ""
 		self.bFavorite.isSelected = movie.getIsFavorite()
+		
+		if self.iMovieCover.image == nil {
+			self.bFavorite.imageView?.addShadow()
+		}
+		
+		self.iMovieCover.kf.setImage(with: URL(string: movie.getCoverUrl()))
+		
+//		print(movie.getCoverUrl())
+	}
+	
+}
+
+extension UIView {
+	func addShadow() {
+		let shadowPath = UIBezierPath(rect: self.bounds)
+		self.layer.masksToBounds = false
+		self.clipsToBounds = false
+		self.layer.shadowColor = UIColor.white.cgColor
+		self.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+		self.layer.shadowOpacity = 0.8
+		self.layer.shadowPath = shadowPath.cgPath
 	}
 }

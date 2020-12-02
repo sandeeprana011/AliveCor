@@ -6,6 +6,7 @@ target 'AliveCor' do
   use_frameworks!
 	pod "Alamofire"
 	pod "Kingfisher"
+	pod 'StagLayout'
   # Pods for AliveCor
 
 end

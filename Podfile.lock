@@ -3,20 +3,24 @@ PODS:
   - Kingfisher (5.15.5):
     - Kingfisher/Core (= 5.15.5)
   - Kingfisher/Core (5.15.5)
+  - StagLayout (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
+  - StagLayout
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - StagLayout
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
+  StagLayout: 5ff3c358b506adb0315e25823006ec546fdbf519
 
-PODFILE CHECKSUM: b1ca614f96ac3002540c9bc2dd8cbb0cdc33febb
+PODFILE CHECKSUM: e1058f17b8e9169f9267df606713b5325873e9e8
 
 COCOAPODS: 1.8.4
