@@ -24,10 +24,12 @@ struct Dates:Codable {
 // MARK: - Result
 struct Movie:Codable {
 	
-	var isFavorite:Bool?;
+	static var allFavs:[Int32] = [Int32]() // jsut for time's sake
+	
+//	var isFavorite:Bool?;
 	
 	func getIsFavorite() -> Bool{
-		return isFavorite ?? false;
+		return Movie.allFavs.contains(self.id ?? -1);
 	}
 	
 	func getCoverUrl() -> String {

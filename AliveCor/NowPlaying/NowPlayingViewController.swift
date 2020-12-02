@@ -23,6 +23,10 @@ class NowPlayingViewController: UIViewController {
 		viewModelNowPlaying = ViewModelNowPlaying(delegate:self)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		self.viewModelNowPlaying.loadDataFromLocalDatabase()
+	}
+	
 }
 
 extension NowPlayingViewController:NowPlayingViewModelDelegate {

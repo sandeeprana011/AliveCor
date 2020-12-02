@@ -13,13 +13,13 @@
         <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="NowPlayingViewController" id="BYZ-38-t0r" customClass="NowPlayingViewController" customModule="AliveCor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NowPlayingViewController" title="Now Playing" id="BYZ-38-t0r" customClass="NowPlayingViewController" customModule="AliveCor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o4A-4v-wcv">
-                                <rect key="frame" x="5" y="44" width="404" height="769"/>
+                                <rect key="frame" x="5" y="0.0" width="404" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OdR-DY-Oux">
                                     <size key="itemSize" width="241" height="239"/>
@@ -54,11 +54,11 @@
                                                     </constraints>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal">
-                                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                        <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
                                                     </state>
-                                                    <state key="selected" image="heart.fill" catalog="system"/>
+                                                    <state key="selected" image="star.fill" catalog="system"/>
                                                     <connections>
-                                                        <action selector="onClickFavorite:" destination="m7F-I2-Bff" eventType="touchUpInside" id="j2R-8R-7TE"/>
+                                                        <action selector="onClickFavorite:" destination="m7F-I2-Bff" eventType="touchUpInside" id="ZGT-gc-TbZ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -94,26 +94,27 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now Playing" image="livephoto.play" catalog="system" id="01i-2u-LNu"/>
+                    <navigationItem key="navigationItem" id="tyM-1O-wcg"/>
                     <connections>
                         <outlet property="collectionView" destination="o4A-4v-wcv" id="nCb-Mx-QmS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="636" y="265"/>
+            <point key="canvasLocation" x="-1661" y="746"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Home-->
         <scene sceneID="8Ih-Xz-mOL">
             <objects>
-                <tabBarController id="pW3-AU-74k" sceneMemberID="viewController">
+                <tabBarController title="Home" id="pW3-AU-74k" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j45-WG-FsZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="XZi-P7-ZED"/>
-                        <segue destination="em9-Tz-gQG" kind="relationship" relationship="viewControllers" id="ifp-XC-tnT"/>
+                        <segue destination="Mvv-Hj-F6g" kind="relationship" relationship="viewControllers" id="B4E-6e-B5u"/>
+                        <segue destination="qbe-oY-Wl2" kind="relationship" relationship="viewControllers" id="PwP-Ke-UA4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MkV-lE-9It" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -123,13 +124,13 @@
         <!--Favourites-->
         <scene sceneID="Hsr-R3-6G7">
             <objects>
-                <viewController storyboardIdentifier="FavoritesViewController" id="em9-Tz-gQG" customClass="FavoritesViewController" customModule="AliveCor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" title="Favourites" id="em9-Tz-gQG" customClass="FavoritesViewController" customModule="AliveCor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="60U-GQ-CJ8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aOE-cL-vH3">
-                                <rect key="frame" x="5" y="44" width="404" height="769"/>
+                                <rect key="frame" x="5" y="88" width="404" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gRH-Ve-P12">
                                     <size key="itemSize" width="241" height="239"/>
@@ -164,9 +165,12 @@
                                                     </constraints>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal">
-                                                        <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                        <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
                                                     </state>
-                                                    <state key="selected" image="heart.fill" catalog="system"/>
+                                                    <state key="selected" image="star.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="onClickFavorite:" destination="qXy-5x-TQj" eventType="touchUpInside" id="pQ5-vg-aop"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -200,20 +204,55 @@
                             <constraint firstItem="aOE-cL-vH3" firstAttribute="leading" secondItem="Pcp-HW-Thr" secondAttribute="leading" constant="5" id="b88-Nd-U9m"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" image="heart.fill" catalog="system" id="RMb-gd-haJ"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" id="RMb-gd-haJ"/>
+                    <navigationItem key="navigationItem" id="jDV-eT-7Le"/>
                     <connections>
-                        <outlet property="collectionView" destination="aOE-cL-vH3" id="WiZ-tz-7yR"/>
+                        <outlet property="collectionView" destination="aOE-cL-vH3" id="N7T-6U-NY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pbv-hH-AEa" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613" y="265"/>
+            <point key="canvasLocation" x="3700" y="370"/>
+        </scene>
+        <!--Now Playing-->
+        <scene sceneID="3eS-ar-t1E">
+            <objects>
+                <navigationController title="Now Playing" id="Mvv-Hj-F6g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Now Playing" id="mbf-lt-U3R"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="JKO-dm-50A">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="K17-ET-0xA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x8D-D9-O6e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-291" y="137"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="4F0-Kv-Nom">
+            <objects>
+                <navigationController id="qbe-oY-Wl2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favourites" image="star.fill" catalog="system" id="2CA-uc-Z9j"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cep-HB-jkM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="em9-Tz-gQG" kind="relationship" relationship="rootViewController" id="ula-cC-21C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wq1-6h-kLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2477" y="271"/>
         </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="livephoto.play" catalog="system" width="128" height="122"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

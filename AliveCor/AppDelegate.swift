@@ -12,9 +12,21 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
+	func updateFavList()  {
+		let request:NSFetchRequest<Favorite> = Favorite.fetchRequest()
+		do {
+			let fet = try self.getContext().fetch(request);
+			fet.forEach({ (favorite) in
+				Movie.allFavs.append(favorite.id)
+			})
+		}catch let error {
+			print(error)
+		}
+	}
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		self.updateFavList()
 		return true
 	}
 

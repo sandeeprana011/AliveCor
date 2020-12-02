@@ -30,8 +30,8 @@ class ViewModelFavorites {
 		let request:NSFetchRequest<Favorite> = Favorite.fetchRequest()
 		do {
 			let fet = try context.fetch(request);
-			(fet as? [Favorite])?.forEach({ (favorite) in
-				let movie = Movie(isFavorite: true, backdrop_path: nil, genre_ids: nil, original_language: nil, original_title: nil, poster_path: favorite.poster_cover, vote_count: nil, video: nil, vote_average: nil, title: favorite.title, overview: nil, release_date: nil, id: favorite.id, popularity: nil, adult: nil)
+			fet.forEach({ (favorite) in
+				let movie = Movie( backdrop_path: nil, genre_ids: nil, original_language: nil, original_title: nil, poster_path: favorite.poster_cover, vote_count: nil, video: nil, vote_average: nil, title: favorite.title, overview: nil, release_date: nil, id: favorite.id, popularity: nil, adult: nil)
 				self.results.append(movie)
 			})
 			self.delegate?.refreshDataSource()
@@ -65,6 +65,11 @@ class FavoritesViewController: UIViewController {
 		self.viewModelFavorites = ViewModelFavorites(delegate:self)
 	}
 	
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.viewModelFavorites.loadDataFromLocalDatabase();
+	}
+	
 }
 
 extension FavoritesViewController:FavoriteViewModelDelegate {
@@ -84,10 +89,15 @@ extension FavoritesViewController:UICollectionViewDelegateFlowLayout,UICollectio
 		return self.viewModelFavorites.numberOfRows()
 	}
 	
+	@objc func reloadFromDB(_ sender:UIButton)  {
+		self.viewModelFavorites.loadDataFromLocalDatabase()
+	}
+	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellMovie.name(), for: indexPath) as! CellMovie
 		if let movie = self.viewModelFavorites.getMovieFor(index:indexPath.row) {
 			cell.updateCell(movie:movie)
+			cell.bFavorite.addTarget(self, action: #selector(self.reloadFromDB(_:)), for: .touchUpInside);
 		}
 		return cell
 	}

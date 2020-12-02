@@ -5,7 +5,13 @@
         <attribute name="poster_cover" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
     </entity>
+    <entity name="NowPlayingMovie" representedClassName="NowPlayingMovie" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="poster_cover" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="Favorite" positionX="-63" positionY="-17" width="128" height="88"/>
+        <element name="Favorite" positionX="-63" positionY="-35" width="128" height="88"/>
+        <element name="NowPlayingMovie" positionX="351.26611328125" positionY="2.33465576171875" width="128" height="88"/>
     </elements>
 </model>
