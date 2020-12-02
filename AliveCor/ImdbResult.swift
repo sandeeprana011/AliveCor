@@ -45,7 +45,7 @@ struct Movie:Codable {
 	var video: Bool?
 	var vote_average: Double?
 	var title, overview, release_date: String?
-	var id: Int?
+	var id: Int32?
 	var popularity: Double?
 	var adult: Bool?
 }
