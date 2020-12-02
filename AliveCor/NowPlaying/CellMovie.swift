@@ -32,6 +32,7 @@ class CellMovie: UICollectionViewCell {
 						print(object)
 						context.delete(object as! NSManagedObject)
 					}
+					try context.save()
 				}
 			}catch{
 				print("Error occured while deleting")
@@ -45,15 +46,17 @@ class CellMovie: UICollectionViewCell {
 			do {
 				try context.save()
 			}catch let error {
-				print(error)
+				print("Error Fault:",error)
 			}
 		}
 		self.bFavorite.isSelected = !self.bFavorite.isSelected
+		AppDelegate.getAppDelegate().updateFavList()
 	}
 	
 	var movie:Movie?
 	
 	func updateCell(movie:Movie)  {
+		self.movie = movie;
 		self.lMovieName.text = movie.title ?? ""
 		self.bFavorite.isSelected = movie.getIsFavorite()
 		
@@ -63,7 +66,7 @@ class CellMovie: UICollectionViewCell {
 		}
 		
 		self.iMovieCover.kf.setImage(with: URL(string: movie.getCoverUrl()))
-		self.movie = movie;
+		
 	}
 	
 }

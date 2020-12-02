@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class ViewModelNowPlaying {
-	var results:[Movie]?
+	var results:[Movie] = [Movie]()
 	
 	var delegate:NowPlayingViewModelDelegate?
 	
@@ -20,14 +20,14 @@ class ViewModelNowPlaying {
 	}
 	
 	func loadDataFromLocalDatabase()  {
-		self.results?.removeAll()
+		self.results.removeAll()
 		let context = AppDelegate.getAppDelegate().getContext();
 		let request:NSFetchRequest<NowPlayingMovie> = NowPlayingMovie.fetchRequest()
 		do {
 			let fet = try context.fetch(request);
 			fet.forEach({ (favorite) in
 				let movie = Movie( backdrop_path: nil, genre_ids: nil, original_language: nil, original_title: nil, poster_path: favorite.poster_cover, vote_count: nil, video: nil, vote_average: nil, title: favorite.title, overview: nil, release_date: nil, id: favorite.id, popularity: nil, adult: nil)
-				self.results?.append(movie)
+				self.results.append(movie)
 			})
 			self.delegate?.refreshDataSource()
 		}catch let error {
@@ -36,14 +36,15 @@ class ViewModelNowPlaying {
 	}
 	
 	func getMovieFor(index:Int) -> Movie? {
-		return self.results?[index] ?? nil
+		return self.results[index] ?? nil
 	}
 	
 	func startLoadingNowPlayingMoviesFromNetwork() {
+		self.results.removeAll()
 		self.delegate?.updateLoader(isLoading: true)
 		IMDBNetworking.getNowPlayingMovies { (response, result, error) in
 			if result != nil {
-				self.results = result?.results
+				self.results.append(contentsOf: result?.results ?? [])
 				self.delegate?.refreshDataSource();
 				self.writeToDatabase(result?.results);
 			}else {
@@ -54,7 +55,19 @@ class ViewModelNowPlaying {
 	}
 	
 	func writeToDatabase(_ result:[Movie]?) {
+		
 		let context = AppDelegate.getAppDelegate().getContext()
+		
+		let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "NowPlayingMovie")
+		let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+		do {
+			try context.execute(deleteRequest)
+		} catch let erro as NSError {
+			print(erro)
+			// TODO: handle the error
+		}
+		
 		let entity = NSEntityDescription.entity(forEntityName: "NowPlayingMovie", in: context)
 		
 		result?.forEach({ (movie) in
@@ -72,7 +85,7 @@ class ViewModelNowPlaying {
 	}
 	
 	func numberOfRows() -> Int {
-		return self.results?.count ?? 0
+		return self.results.count 
 	}
 	
 }

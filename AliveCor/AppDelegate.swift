@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func updateFavList()  {
+		Movie.allFavs.removeAll()
 		let request:NSFetchRequest<Favorite> = Favorite.fetchRequest()
 		do {
 			let fet = try self.getContext().fetch(request);

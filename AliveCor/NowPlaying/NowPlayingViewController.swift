@@ -16,7 +16,8 @@ class NowPlayingViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		let stagLayout = StagLayout(widthHeightRatios: [(0.5,0.5),(0.5,0.5),(1.0,0.5),(0.5,0.5),(0.5,1.0),(0.5,0.5)], itemSpacing: 5);
+//		let stagLayout = StagLayout(widthHeightRatios: [(0.5,0.5),(0.5,0.5),(1.0,0.5),(0.5,0.5),(0.5,1.0),(0.5,0.5)], itemSpacing: 5);
+		let stagLayout = StagLayout(widthHeightRatios: [(0.5,0.5),(0.5,1.0),(0.5,0.5),(1.0,0.5),(0.5,1.0),(0.5,0.5)], itemSpacing: 5);
 		self.collectionView.delegate = self
 		self.collectionView.dataSource = self
 		self.collectionView.setCollectionViewLayout(stagLayout, animated: false)
@@ -24,6 +25,7 @@ class NowPlayingViewController: UIViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
+		AppDelegate.getAppDelegate().updateFavList()
 		self.viewModelNowPlaying.loadDataFromLocalDatabase()
 	}
 	

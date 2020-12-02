@@ -3,4 +3,23 @@
    uuid = "0640B121-60A3-4F7A-ABE3-A81D91804285"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "913613C0-8E89-46A4-953A-30DCE992D99C"
+            shouldBeEnabled = "Yes"
+            condition = "movie.getIsFavorite()"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AliveCor/NowPlaying/CellMovie.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "updateCell(movie:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
